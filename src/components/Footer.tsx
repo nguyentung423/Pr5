@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 
+// Static year to avoid hydration mismatch
+// Update annually or use build-time constant
+const CURRENT_YEAR = 2025;
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
   const navLinks = [
@@ -77,7 +80,7 @@ export default function Footer() {
         {/* Bottom bar - copyright */}
         <div className="mt-8 pt-4 border-t border-border-light">
           <p className="text-[11px] text-muted-light text-center md:text-left">
-            © {currentYear} Nguyen Hoang Tung
+            © {CURRENT_YEAR} Nguyen Hoang Tung
           </p>
         </div>
       </div>
