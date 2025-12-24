@@ -81,7 +81,7 @@ export default function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50",
+        "fixed top-0 left-0 right-0 z-50",
         // Smooth transitions - explicit properties for performance
         "transition-[padding,background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out",
         "motion-reduce:transition-none",

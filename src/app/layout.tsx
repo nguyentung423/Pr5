@@ -87,7 +87,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} antialiased min-h-screen flex flex-col pt-24`}
         suppressHydrationWarning
       >
         <LanguageProvider>{children}</LanguageProvider>
