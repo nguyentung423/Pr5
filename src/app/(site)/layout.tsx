@@ -1,4 +1,4 @@
-import { Header, Footer } from "@/components";
+import { Header, Footer, ScrollReset } from "@/components";
 
 export default function SiteLayout({
   children,
@@ -7,6 +7,7 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <ScrollReset />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
