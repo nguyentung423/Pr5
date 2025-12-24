@@ -1,0 +1,155 @@
+---
+title: "Thiết kế lại trải nghiệm người dùng"
+description: "Dẫn dắt cải thiện UX cho hệ thống quản lý nội bộ, giảm 40% thời gian thao tác và tăng mức độ hài lòng của người dùng."
+date: "2024-10-15"
+tags: ["ux-research", "internal-tools", "process-improvement"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+<CaseLayout
+  focusArea="Nghiên cứu người dùng và cải thiện quy trình"
+  context={
+    <>
+      <p>
+        Một công ty dịch vụ tài chính có hệ thống quản lý nội bộ được xây dựng
+        từ 5 năm trước. Nhân viên phàn nàn về giao diện khó dùng, nhiều thao tác
+        thừa, và thiếu tính nhất quán giữa các module.
+      </p>
+      <p>
+        Hệ thống phục vụ khoảng 200 người dùng hàng ngày, xử lý nghiệp vụ từ
+        onboarding khách hàng đến báo cáo tuân thủ.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <p>Các vấn đề chính được ghi nhận:</p>
+      <ul>
+        <li>Thời gian hoàn thành task trung bình cao gấp 2 lần benchmark</li>
+        <li>23 bước thao tác cho một quy trình đơn giản</li>
+        <li>Thiếu hướng dẫn và feedback khi người dùng gặp lỗi</li>
+        <li>Giao diện không nhất quán giữa 5 module khác nhau</li>
+      </ul>
+      <p>
+        Đội ngũ IT nhận nhiều ticket hỗ trợ mỗi ngày, chủ yếu liên quan đến cách
+        sử dụng chứ không phải lỗi kỹ thuật.
+      </p>
+    </>
+  }
+  role={
+    <>
+      <p>Tôi chịu trách nhiệm:</p>
+      <ul>
+        <li>Khảo sát và phỏng vấn người dùng để hiểu pain point</li>
+        <li>Phân tích dữ liệu sử dụng và xác định điểm nghẽn</li>
+        <li>Đề xuất cải tiến dựa trên nghiên cứu</li>
+        <li>Làm việc với dev để ưu tiên và triển khai thay đổi</li>
+      </ul>
+      <p>Thời gian: 8 tuần, làm việc với 15 stakeholder từ 4 phòng ban.</p>
+    </>
+  }
+  approach={
+    <>
+      <h3>Nghiên cứu người dùng</h3>
+      <p>Phỏng vấn 20 người dùng thuộc các vai trò:</p>
+      <ol>
+        <li>Nhân viên vận hành (thao tác hàng ngày)</li>
+        <li>Quản lý (xem báo cáo và phê duyệt)</li>
+        <li>Compliance (kiểm tra và audit)</li>
+        <li>IT support (hỗ trợ người dùng)</li>
+      </ol>
+      <h3>Phân tích dữ liệu</h3>
+      <p>Dựa trên log hệ thống, xác định được:</p>
+      <ul>
+        <li>5 quy trình chiếm 80% thời gian sử dụng</li>
+        <li>3 màn hình có tỷ lệ thoát cao bất thường</li>
+        <li>Pattern lỗi lặp lại ở bước nhập dữ liệu</li>
+      </ul>
+      <h3>Workshop đồng thiết kế</h3>
+      <p>
+        2 buổi half-day với người dùng đại diện để cùng phác thảo giải pháp và
+        ưu tiên các cải tiến.
+      </p>
+    </>
+  }
+  decisions={
+    <>
+      <p>Ba quyết định thiết kế quan trọng:</p>
+      <h3>1. Đơn giản hóa luồng chính</h3>
+      <p>
+        Giảm từ 23 bước xuống 12 bước cho quy trình onboarding, loại bỏ các
+        trường không cần thiết và gộp màn hình liên quan.
+      </p>
+      <h3>2. Chuẩn hóa UI patterns</h3>
+      <p>
+        Xây dựng design system nhẹ với các component dùng chung, đảm bảo nhất
+        quán giữa các module.
+      </p>
+      <h3>3. Cải thiện error handling</h3>
+      <p>
+        Thêm inline validation và thông báo lỗi rõ ràng, giảm số lần người dùng
+        cần liên hệ IT support.
+      </p>
+    </>
+  }
+  outcome={
+    <>
+      <ul>
+        <li>
+          <strong>Giảm 40% thời gian hoàn thành task</strong> cho 5 quy trình
+          chính
+        </li>
+        <li>
+          <strong>Giảm 60% ticket hỗ trợ</strong> liên quan đến cách sử dụng
+        </li>
+        <li>
+          <strong>NPS nội bộ tăng từ 15 lên 45</strong> sau 2 tháng triển khai
+        </li>
+        <li>
+          <strong>Design system được adopt</strong> cho 3 dự án nội bộ khác
+        </li>
+      </ul>
+      <p>
+        Lợi ích chính: người dùng tự tin hơn khi sử dụng và ít phụ thuộc vào
+        hướng dẫn thủ công.
+      </p>
+    </>
+  }
+  reflection={
+    <>
+      <p>
+        Bài học: người dùng nội bộ cũng cần được đối xử như khách hàng. Khi họ
+        làm việc hiệu quả hơn, cả tổ chức được hưởng lợi.
+      </p>
+      <p>Tôi sẽ làm khác:</p>
+      <ul>
+        <li>Đưa metrics vào sớm hơn để đo baseline chính xác.</li>
+        <li>Mời IT support tham gia từ đầu vì họ hiểu pain point thực tế.</li>
+        <li>Tạo changelog rõ ràng để người dùng biết thay đổi và lý do.</li>
+      </ul>
+    </>
+  }
+/>
+
+<div className="mt-10 pt-5 border-t border-neutral-200/40 dark:border-neutral-700/30">
+
+#### Phụ lục – Tài liệu chi tiết
+
+<span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed block">
+  Nội dung trên website tập trung vào tổng quan và tư duy phân tích. Các
+  artefact và ghi chú chi tiết được lưu riêng tại Google Drive để tiện tham khảo
+  thêm.
+</span>
+
+<span className="text-sm mt-3 block">
+  [→ Xem tài liệu chi
+  tiết](https://drive.google.com/drive/folders/1CggtDmMhZViL6lV-JGZuzyqEm22eNoGS?usp=sharing)
+</span>
+
+<span className="text-xs text-neutral-500 dark:text-neutral-500 mt-2 italic block">
+  Một số nội dung đã được lược giản hoặc ẩn danh.
+</span>
+
+</div>

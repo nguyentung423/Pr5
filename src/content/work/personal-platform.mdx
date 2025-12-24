@@ -1,0 +1,120 @@
+---
+title: "Gap Analysis: Di chuyển CRM doanh nghiệp"
+description: "Phân tích khoảng cách khi chuyển từ CRM cũ sang nền tảng hiện đại"
+date: "2023-11-13"
+tags: ["requirements", "migration", "gap-analysis"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+<CaseLayout
+  focusArea="Gap analysis và kế hoạch di chuyển"
+  context={
+    <>
+      <p>
+        Khách hàng chuyển từ CRM cũ (7 năm, tùy biến nặng) sang nền tảng cloud
+        tiêu chuẩn. Hạn cutover 5 tháng, nguồn lực kỹ thuật hạn chế.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <p>Thách thức chính:</p>
+      <ul>
+        <li>Tùy biến cũ khó ánh xạ sang tính năng chuẩn.</li>
+        <li>Cần giữ khả năng báo cáo, audit, PII như hiện tại.</li>
+        <li>Cần ưu tiên rõ cho Day 1 để tránh trễ cutover.</li>
+      </ul>
+    </>
+  }
+  role={
+    <>
+      <p>
+        Business Analyst: dẫn dắt gap analysis, định nghĩa yêu cầu, và lập kế
+        hoạch di chuyển. Làm việc cùng 3 PO, 2 tech lead, compliance và vận hành.
+      </p>
+    </>
+  }
+  approach={
+    <>
+      <h3>1) Discover: hiện trạng & ràng buộc</h3>
+      <ul>
+        <li>Phỏng vấn 12 stakeholder (Sales, CS, Ops).</li>
+        <li>Trích xuất 38 luồng hiện hữu, 11 tùy biến quan trọng.</li>
+        <li>Bản đồ dữ liệu và tích hợp với billing, support, warehouse.</li>
+      </ul>
+
+      <h3>2) Define: khoảng cách & quyết định</h3>
+      <ul>
+        <li>So sánh legacy vs. target, ghi nhận 52 gap.</li>
+        <li>Ưu tiên theo impact/effort; 14 hạng mục must-have cho Day 1.</li>
+        <li>Ghi NFR: độ trễ, auditability, xử lý PII.</li>
+        <li>Facilitate trade-off build vs. configure với kỹ thuật và product.</li>
+      </ul>
+
+      <h3>3) Deliver: yêu cầu & kế hoạch</h3>
+      <ul>
+        <li>Bộ yêu cầu: user story, acceptance criteria, và data mapping.</li>
+        <li>Plan cutover theo pha: nền tảng → pilot → rollout.</li>
+        <li>Risk log (auth, chất lượng dữ liệu, parity báo cáo) và mitigations.</li>
+      </ul>
+    </>
+
+}
+decisions={
+
+<>
+  <ul>
+    <li>Khóa phạm vi Day 1 với 14 must-have; nice-to-have được xếp pha sau.</li>
+    <li>Chọn configure thay vì custom code với 3 module để giảm thời gian.</li>
+    <li>
+      Đặt chuẩn audit/PII tối thiểu trước khi dev để được compliance ký duyệt.
+    </li>
+  </ul>
+</>
+} outcome={
+  <>
+    <ul>
+      <li>Định nghĩa rõ in/out cho Day 1; giảm unknown.</li>
+      <li>Engineering có backlog ước lượng được; dev bắt đầu từ tuần 3.</li>
+      <li>Compliance ký trước phát triển nhờ tài liệu audit/PII.</li>
+      <li>Cutover plan có checklist và dry-run bước.</li>
+    </ul>
+  </>
+}
+reflection=
+{
+  <>
+    <p>Điều rút ra:</p>
+    <ul>
+      <li>Chốt tiêu chí Day 1 sớm giúp giảm tranh luận về phạm vi.</li>
+      <li>Hiện thực hóa NFR (audit, PII) thành yêu cầu kiểm thử cụ thể.</li>
+      <li>
+        Visual gap matrix giúp stakeholder ưu tiên nhanh hơn số liệu thuần chữ.
+      </li>
+    </ul>
+  </>
+}
+/>
+
+<div className="mt-10 pt-5 border-t border-neutral-200/40 dark:border-neutral-700/30">
+
+#### Phụ lục – Tài liệu chi tiết
+
+<span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed block">
+  Nội dung trên website tập trung vào tổng quan và tư duy phân tích. Các
+  artefact và ghi chú chi tiết được lưu riêng tại Google Drive để tiện tham khảo
+  thêm.
+</span>
+
+<span className="text-sm mt-3 block">
+  [→ Xem tài liệu chi
+  tiết](https://drive.google.com/drive/folders/1CggtDmMhZViL6lV-JGZuzyqEm22eNoGS?usp=sharing)
+</span>
+
+<span className="text-xs text-neutral-500 dark:text-neutral-500 mt-2 italic block">
+  Một số nội dung đã được lược giản hoặc ẩn danh.
+</span>
+
+</div>

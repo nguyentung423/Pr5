@@ -1,26 +1,290 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --fg: #0a0a0a;
+  --fg-secondary: #1a1a1a;
+  --muted: #636363;
+  --muted-light: #8a8a8a;
+  --accent: #0066cc;
+  --accent-hover: #0052a3;
+  --border: #e8e8e8;
+  --border-light: #f0f0f0;
+
+  /* Animation tokens */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   ANCHOR OFFSET
+   Compensate for sticky header height (72px default + 16px spacing)
+   ============================================ */
+
+.anchor-offset,
+[id]:target {
+  scroll-margin-top: 88px;
+}
+
+/* ============================================
+   SKIP TO CONTENT LINK
+   Hidden by default, visible on focus for keyboard users
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 24px;
+  background-color: var(--fg);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(
+    --font-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif
+  );
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography scale - establishing rhythm */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Links - subtle and refined */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+/* Selection - branded */
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Focus states - accessible */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  transition: color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   Only applied to sections with .reveal class
+   Disabled on long-form content pages for reading stability
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Disable scroll reveal on article/prose pages for stable reading */
+article .reveal,
+.prose .reveal,
+.prose-case .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Staggered children - only for lists and cards, not prose */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+.reveal-stagger.revealed > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.reveal-stagger.revealed > *:nth-child(2) {
+  transition-delay: 40ms;
+}
+.reveal-stagger.revealed > *:nth-child(3) {
+  transition-delay: 80ms;
+}
+.reveal-stagger.revealed > *:nth-child(4) {
+  transition-delay: 120ms;
+}
+
+.reveal-stagger.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Disable stagger in prose content */
+.prose .reveal-stagger > *,
+.prose-case .reveal-stagger > * {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Page content fade-in - 200ms for imperceptible polish */
+.page-content {
+  animation: fadeIn var(--duration-normal) var(--ease-out) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: Respect reduced motion
+   Fully disable all motion - not ultra-short durations
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   CASE STUDY PROSE STYLING
+   Typography for structured BA case content
+   ============================================ */
+
+.prose-case {
+  color: var(--fg);
+  line-height: 1.7;
+}
+
+.prose-case p {
+  font-size: 15px;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+
+.prose-case h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.prose-case ul,
+.prose-case ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-case li {
+  font-size: 15px;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+
+.prose-case strong {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.prose-case blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 1.5rem 0;
 }
