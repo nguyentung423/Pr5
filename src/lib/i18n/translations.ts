@@ -111,7 +111,7 @@ export const translations = {
     // About page
     about: {
       title: "Nguyễn Hoàng Tùng",
-      openForInternship: "Open for Internship",
+      openForInternship: "Open to work",
       downloadCV: "Tải CV (PDF)",
       openingStatement:
         "Tôi tin rằng sự rõ ràng là một hình thức tôn trọng — đối với vấn đề, đối với người nghe, và đối với chính công việc.",
@@ -408,7 +408,7 @@ export const translations = {
     // About page
     about: {
       title: "Nguyen Hoang Tung",
-      openForInternship: "Open for Internship",
+      openForInternship: "Open to work",
       downloadCV: "Download CV (PDF)",
       openingStatement:
         "I believe clarity is a form of respect — for the problem, for the audience, and for the work itself.",
