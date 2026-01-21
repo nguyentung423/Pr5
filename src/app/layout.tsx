@@ -11,30 +11,38 @@ const inter = Inter({
 // ============================================
 // SITE METADATA
 // ============================================
-const SITE_URL = "https://nguyenhoangtung.com";
-const SITE_NAME = "Nguyen Hoang Tung";
+const SITE_URL = "https://tungnguyen.tech";
+const SITE_NAME = "Tung Nguyen Portfolio";
 const SITE_DESCRIPTION =
-  "A personal platform for work, thinking, and ongoing exploration. Work, notes, and resources — evolving over time.";
+  "Portfolio các dự án chuyên sâu về Phân tích nghiệp vụ & Kiểm thử phần mềm.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Personal Platform`,
+    default: "Nguyễn Hoàng Tùng | BA & QA Portfolio",
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   openGraph: {
-    title: `${SITE_NAME} — Personal Platform`,
+    title: "Nguyễn Hoàng Tùng | BA & QA Portfolio",
     description: SITE_DESCRIPTION,
     type: "website",
     locale: "vi_VN",
     alternateLocale: "en_US",
     siteName: SITE_NAME,
     url: SITE_URL,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nguyen Hoang Tung Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Personal Platform`,
+    title: "Nguyễn Hoàng Tùng | BA & QA Portfolio",
     description: SITE_DESCRIPTION,
   },
   robots: {
