@@ -1,0 +1,229 @@
+---
+title: "Appointment & Queue Lite — Business Analysis"
+description: "Personal project focused on requirements analysis and MVP design for a branch-based booking web app, with time-slot management and queue numbering to reduce waiting time at service points."
+date: "2026-01-15"
+tags: ["requirements", "booking", "queue-management"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+{/* Project Snapshot */}
+
+<div
+  className="mb-8 md:mb-12 p-5 md:p-8 rounded-xl border dark:bg-neutral-800/40 dark:border-neutral-700/40"
+  style={{
+    backgroundColor: "#ffffff",
+    borderColor: "#E5E5E5",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+  }}
+>
+  <h3 className="text-[13px] font-semibold text-[#555555] dark:text-neutral-400 uppercase tracking-[0.08em] mb-5">
+    Project Overview
+  </h3>
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 text-sm">
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Role
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Business Analyst
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Project Type
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Personal Project
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Domain
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Service / Queue Management
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Duration
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        In Progress
+      </span>
+    </div>
+    <div className="col-span-2">
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Focus
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Requirements, User Stories, Acceptance Criteria, User Flows
+      </span>
+    </div>
+  </div>
+</div>
+
+<CaseLayout
+  focusArea="Requirements definition and MVP design"
+  context={
+    <>
+      <p>
+        MVP web app for branch-based booking + time-slot management + queue numbering to reduce waiting time at service points.
+      </p>
+      <p>
+        Customers can select a branch, choose a suitable time-slot, and receive a queue number before arriving.
+        This helps distribute customer traffic more evenly and reduces waiting time.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <h3>Scope</h3>
+      <p>
+        <strong>In Scope:</strong>
+      </p>
+      <ul>
+        <li>Branch selection</li>
+        <li>Time-slot booking</li>
+        <li>Queue numbering</li>
+        <li>Admin booking management</li>
+      </ul>
+      <p>
+        <strong>Out of Scope:</strong>
+      </p>
+      <ul>
+        <li>Online payment</li>
+        <li>CRM/ERP integration</li>
+        <li>Native mobile application</li>
+      </ul>
+    </>
+  }
+  role={
+    <>
+      <h3>As Business Analyst</h3>
+      <ul>
+        <li>Define business requirements (BRD/FRD)</li>
+        <li>Write detailed user stories</li>
+        <li>Build acceptance criteria using Given–When–Then format</li>
+        <li>Design user flows for main processes</li>
+      </ul>
+      <h3>Business Modeling</h3>
+      <ul>
+        <li>Business rules (slot capacity, cancellation/no-show policies)</li>
+        <li>BPMN diagrams for main processes</li>
+        <li>Wireframes for key screens</li>
+        <li>KPI definitions to measure effectiveness</li>
+      </ul>
+    </>
+  }
+  approach={
+    <>
+      <h3>Key Deliverables</h3>
+      
+      {/* 1. User Stories & Acceptance Criteria */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">User Stories & Acceptance Criteria</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Standardize business requirements into detailed user stories. Acceptance criteria built using Gherkin model (Given-When-Then) to ensure logical rigor.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Coming soon...
+        </span>
+      </div>
+      
+      {/* 2. User Flow Diagram */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">User Flow Diagram</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Visualize User Flow for the booking process: from branch selection → time-slot selection → confirmation → receive queue number.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Coming soon...
+        </span>
+      </div>
+      
+      {/* 3. BPMN Process Diagram */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">BPMN Process Diagram</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Model booking and queue management processes following BPMN 2.0 standard, clearly showing steps, conditions, and actors.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Coming soon...
+        </span>
+      </div>
+      
+      {/* 4. Wireframes */}
+      <div className="p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Wireframes</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Wireframes for main screens: Branch selection page, Time-slot selection page, Confirmation page, Admin dashboard.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Coming soon...
+        </span>
+      </div>
+    </>
+  }
+  decisions={
+    <>
+      <h3>Key Business Rules</h3>
+      <ul>
+        <li><strong>Slot Capacity:</strong> Each time-slot has a maximum booking limit</li>
+        <li><strong>Cancellation Policy:</strong> Allow cancellation X hours before, no cancellation allowed after</li>
+        <li><strong>No-show Handling:</strong> Customers who don't show up will be flagged, affecting their next booking</li>
+        <li><strong>Queue Priority:</strong> Customers with appointments get priority over walk-ins</li>
+      </ul>
+
+      <h3 className="mt-8">Expected KPIs</h3>
+      <ul>
+        <li>Average waiting time at branch</li>
+        <li>Online booking vs. walk-in ratio</li>
+        <li>No-show rate</li>
+        <li>Customer satisfaction (CSAT)</li>
+      </ul>
+    </>
+
+}
+outcome={
+<>
+<p>Project is in analysis and design phase. Expected deliverables:</p>
+<ul>
+<li>
+<strong>Requirements Documentation</strong> – BRD/FRD with user stories and acceptance criteria
+</li>
+<li>
+<strong>Process Models</strong> – BPMN diagrams for main flows
+</li>
+<li>
+<strong>Wireframes</strong> – Preliminary design for key screens
+</li>
+<li>
+<strong>MVP Prototype</strong> – Working demo (planned)
+</li>
+</ul>
+</>
+}
+reflection={
+<>
+<h3>Learning Objectives</h3>
+<ul>
+<li>Practice requirements analysis from idea to MVP</li>
+<li>Apply BPMN for business process modeling</li>
+<li>Build testable acceptance criteria</li>
+</ul>
+</>
+}
+/>
+
+<div className="mt-10 pt-5 border-t border-neutral-200/40 dark:border-neutral-700/30">
+
+#### Tools Used
+
+<span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed block">
+  Google Docs, Google Sheets, Figma, Postman, Lucidchart
+</span>
+
+</div>

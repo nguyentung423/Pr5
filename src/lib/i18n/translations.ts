@@ -17,7 +17,7 @@ export const translations = {
       headline: "Biến sự mơ hồ",
       headlineMuted: "thành yêu cầu rõ ràng để đội kỹ thuật triển khai.",
       subtext:
-        "Tôi học và thực hành Business Analysis: làm rõ vấn đề, phỏng vấn stakeholder, và viết yêu cầu có đủ ngữ cảnh để đội kỹ thuật triển khai đúng mục tiêu.",
+        "Tôi thực hành Business Analysis với tư duy hệ thống: Khơi gợi vấn đề từ Stakeholder, cụ thể hóa nghiệp vụ và chuyển giao tài liệu chính xác cho quá trình phát triển.",
       ctaPrimary: "Xem Dự án",
       ctaSecondary: "Đọc Ghi chú",
       credibility:
@@ -27,13 +27,13 @@ export const translations = {
       whatLivesHere: "Có gì ở đây",
       workTitle: "Dự án",
       workDesc:
-        "Case study mô phỏng và bài tập thực hành — cách tôi phân tích, đối thoại với stakeholder, và ra tài liệu yêu cầu có thể dùng được.",
+        "Các dự án cá nhân và Case Study mô phỏng. Nơi tôi tự đặt bài toán, phân tích và thực hành viết tài liệu đặc tả theo tiêu chuẩn công nghiệp.",
       notesTitle: "Ghi chú",
       notesDesc:
-        "Những suy nghĩ ngắn về cách xử lý mơ hồ, đặt câu hỏi, và giữ alignment giữa nghiệp vụ và kỹ thuật.",
+        "Những đúc kết về tư duy Product & BA. Tập trung vào kỹ năng đặt câu hỏi (Framing), xử lý sự mơ hồ và duy trì sự thống nhất (Alignment) trong dự án.",
       aboutTitle: "Giới thiệu",
       aboutDesc:
-        "Bối cảnh cá nhân, cách tôi học và thực hành BA với góc nhìn sinh viên năm 3 UET.",
+        "Hành trình từ AgriTech đến Business Analysis. Nơi tôi chia sẻ về tư duy hệ thống, nguyên tắc làm việc và niềm tin rằng 'Sự rõ ràng là sức mạnh'.",
 
       // Case Studies
       caseStudies: "Case Studies",
@@ -53,10 +53,21 @@ export const translations = {
       discussProject: "Tư duy & hành trình →",
     },
 
+    // Clarity Section (GSAP animation)
+    clarity: {
+      slogan: "Clarity is Power.",
+      subtext: "Bạn cần một người giúp làm rõ những yêu cầu mơ hồ?",
+      cta: "Kết nối với tôi",
+    },
+
     // Footer
     footer: {
-      copyright: "© 2024 Tung Nguyen",
-      tagline: "Ghi chép, tư duy, và học hỏi.",
+      identity: "Identity",
+      tagline: "Ghi chép, tư duy và học hỏi từ thực tế.",
+      explore: "Khám phá",
+      openToDiscuss: "Cởi mở trao đổi",
+      openToDiscussDesc: "Về sản phẩm, yêu cầu và quy trình triển khai.",
+      copyright: "© 2025 Nguyen Hoang Tung",
       navWork: "Dự án",
       navThinking: "Ghi chú",
       navAbout: "Giới thiệu",
@@ -70,6 +81,7 @@ export const translations = {
       description:
         "Các case study, dự án, và thử nghiệm tôi đã xây dựng hoặc đóng góp. Mỗi phần đại diện cho một vấn đề được giải quyết hoặc một ý tưởng được khám phá.",
       emptyState: "Dự án sẽ cập nhật sớm.",
+      backToWork: "← Quay lại Dự án",
     },
 
     // Thinking page
@@ -78,17 +90,114 @@ export const translations = {
       description:
         "Tư duy về sự mơ hồ, định hình vấn đề, và ra quyết định. Những bài viết này không phải là câu trả lời — mà là cách tôi đi tìm chúng.",
       emptyState: "Ghi chú sẽ cập nhật sớm.",
+      backToThinking: "← Quay lại Ghi chú",
+    },
+
+    // Case Layout (project detail page)
+    caseLayout: {
+      tableOfContents: "Cấu trúc bài",
+      focus: "Trọng tâm",
+      sections: {
+        context: "Bối cảnh",
+        problem: "Phạm vi",
+        role: "Vai trò và trách nhiệm",
+        approach: "Tài liệu dự án & Kết quả bàn giao",
+        decisions: "Demo và cách dùng AI",
+        outcome: "Kết quả",
+        reflection: "Bài học rút ra",
+      },
     },
 
     // About page
     about: {
       title: "Nguyễn Hoàng Tùng",
+      openForInternship: "Open for Internship",
+      downloadCV: "Tải CV (PDF)",
       openingStatement:
         "Tôi tin rằng sự rõ ràng là một hình thức tôn trọng — đối với vấn đề, đối với người nghe, và đối với chính công việc.",
       backgroundP1:
-        "Tôi là Business Analyst làm việc tại giao điểm của nghiệp vụ và công nghệ. Công việc của tôi trải rộng từ phân tích yêu cầu, thiết kế quy trình, đến tư duy chiến lược.",
+        "Tôi là sinh viên năm 3 chuyên ngành Công nghệ Nông nghiệp (AgriTech) tại UET-VNU. Xuất phát điểm từ việc nghiên cứu các hệ thống sinh học và kỹ thuật phức tạp, tôi rèn luyện được tư duy tối ưu hóa quy trình và cái nhìn thực tế khi áp dụng công nghệ vào đời sống.",
       backgroundP2:
-        "Qua nhiều năm, tôi đã phát triển một phương pháp làm việc đề cao sự rõ ràng, có chủ đích, và tư duy dài hạn.",
+        "Hiện tại, tôi định hướng trở thành Business Analyst với mục tiêu làm cầu nối bền vững giữa bài toán nghiệp vụ và giải pháp kỹ thuật.",
+      // Section titles
+      experienceTitle: "Kinh nghiệm",
+      skillsTitle: "Kỹ năng & Công cụ",
+      achievementsTitle: "Thành tựu",
+      // Experience items
+      experiences: [
+        {
+          company: "AIVOS",
+          role: "Marketing Intern (AI/VR Products)",
+          date: "05/2025 – 09/2025",
+          tasks: [
+            "Phối hợp lập kế hoạch, theo dõi tiến độ (Tracking timeline) và hỗ trợ đảm bảo các đầu việc hoàn thành đúng hạn.",
+            "Phân tích thị trường và User Insights để đề xuất giải pháp nội dung tối ưu.",
+          ],
+        },
+        {
+          company: "Fulbright Vietnam 2025",
+          role: "Mentor",
+          date: "04/2025 – 06/2025",
+          tasks: [
+            "Hướng dẫn học sinh xây dựng dự án STEM theo mục tiêu và mốc thời gian.",
+            "Review chất lượng đầu ra và phản hồi giúp cải thiện tư duy logic.",
+          ],
+        },
+        {
+          company: "VISI – VNU Innovation & Startup Incubator",
+          role: "Project Assistant",
+          date: "06/2024 – 01/2025",
+          tasks: [
+            "Điều phối thông tin, tổng hợp yêu cầu nghiệp vụ (Requirements gathering) hỗ trợ startup giai đoạn ra mắt (Go-to-market).",
+            "Cộng tác với team Product để tối ưu quy trình và đảm bảo chất lượng bàn giao (Deliverables).",
+          ],
+        },
+      ],
+      // Skills
+      skills: [
+        {
+          category: "Business Analysis",
+          items: [
+            "Requirement Analysis",
+            "User Stories",
+            "AC (GWT)",
+            "RTM",
+            "Workflow Design",
+          ],
+        },
+        {
+          category: "Quality Assurance",
+          items: [
+            "Manual Testing",
+            "Test Cases",
+            "Bug Reporting",
+            "Regression Testing",
+          ],
+        },
+        {
+          category: "Tools",
+          items: [
+            "Jira",
+            "Trello",
+            "Figma",
+            "Lucidchart",
+            "Postman",
+            "Git",
+            "Google Sheets",
+          ],
+        },
+        {
+          category: "AI-Native Workflow",
+          items: ["Automate Coding", "Analysis & Docs in SDLC"],
+        },
+      ],
+      // Achievements
+      achievements: [
+        "Giải Ba - UEB Business Challenge 2025",
+        "Giải Nhì - Innovative Tech Idea 2024 (UET–VNU)",
+        "Giải Nhì - LifeCode Challenge",
+        "Special Recognition - Startup Launchpad 2024",
+      ],
       pullQuote:
         "Công việc tốt đến từ việc hiểu sâu vấn đề trước khi nhảy vào giải pháp.",
       interestsTitle: "Điều tôi quan tâm",
@@ -113,7 +222,7 @@ export const translations = {
           desc: "Quyết định hôm nay ảnh hưởng đến những gì có thể xây dựng ngày mai.",
         },
       ],
-      // Expandable sections
+      // Expandable sections (legacy - kept for compatibility)
       experienceToggle: "Xem kinh nghiệm & thực hành",
       experienceItems: [
         {
@@ -174,17 +283,15 @@ export const translations = {
     contact: {
       title: "Liên hệ",
       subtitle:
-        "Tôi trân trọng những cuộc trò chuyện đi sâu vào vấn đề — nơi cả hai bên cùng học hỏi.",
-      humanNote:
-        "Dù là một câu hỏi bạn đang suy nghĩ, một vấn đề cần làm rõ, hay đơn giản là muốn trao đổi ý tưởng — tôi luôn sẵn lòng lắng nghe.",
-      reachOutTitle: "Bắt đầu cuộc trò chuyện",
-      reachOutText:
-        "Zalo là cách tôi thích nhất để bắt đầu. Không cần hình thức — hãy nhắn như đang nói chuyện.",
-      sendEmail: "Liên hệ Zalo →",
-      microPrompt:
-        "Bạn có thể chia sẻ: một câu hỏi, một vấn đề đang gặp, hoặc điều gì đó bạn muốn thảo luận.",
-      elsewhereTitle: "Nơi khác",
-      elsewhereText: "Bạn cũng có thể tìm tôi trên các nền tảng này:",
+        "Tôi luôn tìm kiếm những bài toán nghiệp vụ thú vị và những đội ngũ cùng chí hướng. Đừng ngần ngại kết nối để trao đổi về công việc hoặc một dự án tiềm năng.",
+      emailTitle: "Qua Email",
+      emailDesc: "Dành cho trao đổi công việc và tài liệu chi tiết.",
+      emailCTA: "Gửi Email ngay",
+      emailCopy: "hoặc sao chép địa chỉ",
+      emailCopied: "✓ Đã sao chép!",
+      socialTitle: "Mạng xã hội",
+      socialDesc: "Kết nối chuyên nghiệp hoặc trò chuyện nhanh.",
+      zaloQuickChat: "Chat nhanh",
     },
   },
 
@@ -204,24 +311,25 @@ export const translations = {
     home: {
       eyebrow: "Business Analyst",
       headline: "I turn ambiguity",
-      headlineMuted: "into clarity that ships.",
+      headlineMuted: "into clear requirements that engineering teams can ship.",
       subtext:
-        "Business Analyst helping teams move from unclear problems to shipped solutions. I facilitate alignment, define requirements, and document decisions that stick.",
+        "I practice Business Analysis with systems thinking: Elicit problems from Stakeholders, specify business needs, and deliver accurate documentation for the development process.",
       ctaPrimary: "View Work",
       ctaSecondary: "Read Notes",
       credibility:
-        "5+ years in fintech & enterprise software · Based in Vietnam",
+        "3rd year student at UET-VNU, pursuing Business Analyst role, focused on requirements analysis and solving business problems",
 
       // What lives here
       whatLivesHere: "What lives here",
       workTitle: "Work",
       workDesc:
-        "Analysis work and case studies. How I define problems, align stakeholders, and deliver clear requirements.",
+        "Personal projects and simulated Case Studies. Where I define problems, analyze, and practice writing specifications to industry standards.",
       notesTitle: "Notes",
       notesDesc:
-        "Reflections on analysis methods, decision-making, and working with stakeholders. Lessons learned.",
+        "Insights on Product & BA thinking. Focused on Framing skills, handling ambiguity, and maintaining Alignment in projects.",
       aboutTitle: "About",
-      aboutDesc: "Background, methodology, and how I approach analysis work.",
+      aboutDesc:
+        "Journey from AgriTech to Business Analysis. Where I share about systems thinking, work principles, and the belief that 'Clarity is Power'.",
 
       // Case Studies
       caseStudies: "Case Studies",
@@ -231,20 +339,32 @@ export const translations = {
       // Analysis Notes
       analysisNotes: "Analysis Notes",
       analysisNotesDesc:
-        "Process thinking, decision frameworks, and lessons from the field.",
+        "Short notes on asking questions, prioritizing requirements, and engaging with stakeholders. Focused on clarity, framing, and alignment.",
       notesComingSoon: "Notes coming soon.",
 
       // Closing reflection
       workingTogether: "Where I document",
       workingTogetherDesc:
-        "This is where I think, learn, and take notes. Not polished, but honest.",
+        "This is where I practice BA thinking: observe ambiguity, ask enough to clarify, and write it down so engineering teams understand. Not a capability statement, but a journey of learning and making things clear.",
       discussProject: "Thinking & journey →",
+    },
+
+    // Clarity Section (GSAP animation)
+    clarity: {
+      slogan: "Clarity is Power.",
+      subtext: "Need someone to help clarify ambiguous requirements?",
+      cta: "Connect with me",
     },
 
     // Footer
     footer: {
-      copyright: "© 2024 Tung Nguyen",
-      tagline: "Notes, thinking, and learning.",
+      identity: "Identity",
+      tagline: "Notes, thinking, and learning from practice.",
+      explore: "Explore",
+      openToDiscuss: "Open to discuss",
+      openToDiscussDesc:
+        "About products, requirements, and implementation process.",
+      copyright: "© 2025 Nguyen Hoang Tung",
       navWork: "Work",
       navThinking: "Thinking",
       navAbout: "About",
@@ -258,6 +378,7 @@ export const translations = {
       description:
         "Case studies, projects, and experiments I've built or contributed to. Each piece represents a problem solved or an idea explored.",
       emptyState: "Work coming soon.",
+      backToWork: "← Back to Work",
     },
 
     // Thinking page
@@ -266,17 +387,114 @@ export const translations = {
       description:
         "On ambiguity, problem framing, and decision-making. These aren't answers — they're how I search for them.",
       emptyState: "Notes coming soon.",
+      backToThinking: "← Back to Thinking",
+    },
+
+    // Case Layout (project detail page)
+    caseLayout: {
+      tableOfContents: "Table of Contents",
+      focus: "Focus",
+      sections: {
+        context: "Context",
+        problem: "Scope",
+        role: "Role & Responsibilities",
+        approach: "Project Documents & Deliverables",
+        decisions: "Demo & AI Usage",
+        outcome: "Outcome",
+        reflection: "Lessons Learned",
+      },
     },
 
     // About page
     about: {
       title: "Nguyen Hoang Tung",
+      openForInternship: "Open for Internship",
+      downloadCV: "Download CV (PDF)",
       openingStatement:
         "I believe clarity is a form of respect — for the problem, for the audience, and for the work itself.",
       backgroundP1:
-        "I'm a Business Analyst working at the intersection of business and technology. My work spans requirements analysis, process design, and strategic thinking.",
+        "I'm a 3rd year student majoring in Agricultural Technology (AgriTech) at UET-VNU. Starting from researching complex biological and technical systems, I developed process optimization thinking and a practical perspective on applying technology to real life.",
       backgroundP2:
-        "Over the years, I've developed a practice that values clarity, intentionality, and long-term thinking.",
+        "Currently, I'm pursuing to become a Business Analyst with the goal of being a sustainable bridge between business problems and technical solutions.",
+      // Section titles
+      experienceTitle: "Experience",
+      skillsTitle: "Skills & Tools",
+      achievementsTitle: "Achievements",
+      // Experience items
+      experiences: [
+        {
+          company: "AIVOS",
+          role: "Marketing Intern (AI/VR Products)",
+          date: "05/2025 – 09/2025",
+          tasks: [
+            "Coordinated planning, tracked timeline progress, and ensured deliverables were completed on time.",
+            "Analyzed market and User Insights to propose optimal content solutions.",
+          ],
+        },
+        {
+          company: "Fulbright Vietnam 2025",
+          role: "Mentor",
+          date: "04/2025 – 06/2025",
+          tasks: [
+            "Guided students in building STEM projects with clear goals and milestones.",
+            "Reviewed output quality and provided feedback to improve logical thinking.",
+          ],
+        },
+        {
+          company: "VISI – VNU Innovation & Startup Incubator",
+          role: "Project Assistant",
+          date: "06/2024 – 01/2025",
+          tasks: [
+            "Coordinated information, gathered business requirements (Requirements gathering) to support startups in Go-to-market phase.",
+            "Collaborated with Product team to optimize processes and ensure delivery quality (Deliverables).",
+          ],
+        },
+      ],
+      // Skills
+      skills: [
+        {
+          category: "Business Analysis",
+          items: [
+            "Requirement Analysis",
+            "User Stories",
+            "AC (GWT)",
+            "RTM",
+            "Workflow Design",
+          ],
+        },
+        {
+          category: "Quality Assurance",
+          items: [
+            "Manual Testing",
+            "Test Cases",
+            "Bug Reporting",
+            "Regression Testing",
+          ],
+        },
+        {
+          category: "Tools",
+          items: [
+            "Jira",
+            "Trello",
+            "Figma",
+            "Lucidchart",
+            "Postman",
+            "Git",
+            "Google Sheets",
+          ],
+        },
+        {
+          category: "AI-Native Workflow",
+          items: ["Automate Coding", "Analysis & Docs in SDLC"],
+        },
+      ],
+      // Achievements
+      achievements: [
+        "3rd Prize - UEB Business Challenge 2025",
+        "2nd Prize - Innovative Tech Idea 2024 (UET–VNU)",
+        "2nd Prize - LifeCode Challenge",
+        "Special Recognition - Startup Launchpad 2024",
+      ],
       pullQuote:
         "Good work comes from understanding problems deeply before jumping to solutions.",
       interestsTitle: "What I care about",
@@ -301,7 +519,7 @@ export const translations = {
           desc: "Today's decisions shape what's possible to build tomorrow.",
         },
       ],
-      // Expandable sections
+      // Expandable sections (legacy - kept for compatibility)
       experienceToggle: "View experience & practice",
       experienceItems: [
         {
@@ -362,17 +580,15 @@ export const translations = {
     contact: {
       title: "Contact",
       subtitle:
-        "I value conversations that go deep into problems — where both sides learn something.",
-      humanNote:
-        "Whether it's a question you're thinking about, a problem you want clarity on, or simply an idea you'd like to discuss — I'm happy to listen.",
-      reachOutTitle: "Start a conversation",
-      reachOutText:
-        "Zalo is my preferred way to start. No formality needed — message like you're talking.",
-      sendEmail: "Contact on Zalo →",
-      microPrompt:
-        "You could share: a question, a challenge you're facing, or something you'd like to explore.",
-      elsewhereTitle: "Elsewhere",
-      elsewhereText: "You can also find me on these platforms:",
+        "I'm always looking for interesting business problems and like-minded teams. Feel free to connect to discuss work or a potential project.",
+      emailTitle: "Via Email",
+      emailDesc: "For work inquiries and detailed documentation.",
+      emailCTA: "Send Email now",
+      emailCopy: "or copy address",
+      emailCopied: "✓ Copied!",
+      socialTitle: "Social Networks",
+      socialDesc: "Professional networking or quick chat.",
+      zaloQuickChat: "Quick chat",
     },
   },
 } as const;

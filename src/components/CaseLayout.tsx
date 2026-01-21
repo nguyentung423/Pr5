@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 interface CaseSectionProps {
   id: string;
@@ -41,15 +42,28 @@ export default function CaseLayout({
   focusArea,
 }: CaseLayoutProps) {
   const [showTOC, setShowTOC] = useState(false);
+  const { t } = useLanguage();
 
   const sections = [
-    { id: "context", title: "Context / Overview", content: context },
-    { id: "problem", title: "The Problem", content: problem },
-    { id: "role", title: "My Role & Scope", content: role },
-    { id: "approach", title: "Analysis Approach", content: approach },
-    { id: "decisions", title: "Key Decisions", content: decisions },
-    { id: "outcome", title: "Outcome / Impact", content: outcome },
-    { id: "reflection", title: "Reflection", content: reflection },
+    { id: "context", title: t.caseLayout.sections.context, content: context },
+    { id: "problem", title: t.caseLayout.sections.problem, content: problem },
+    { id: "role", title: t.caseLayout.sections.role, content: role },
+    {
+      id: "approach",
+      title: t.caseLayout.sections.approach,
+      content: approach,
+    },
+    {
+      id: "decisions",
+      title: t.caseLayout.sections.decisions,
+      content: decisions,
+    },
+    { id: "outcome", title: t.caseLayout.sections.outcome, content: outcome },
+    {
+      id: "reflection",
+      title: t.caseLayout.sections.reflection,
+      content: reflection,
+    },
   ];
 
   return (
@@ -75,20 +89,20 @@ export default function CaseLayout({
               d="M9 5l7 7-7 7"
             />
           </svg>
-          Case Structure
+          {t.caseLayout.tableOfContents}
         </button>
         <div
           className={`overflow-hidden transition-[max-height,opacity] duration-200 ease-out ${
             showTOC ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <nav className="pl-5.5">
+          <nav className="pl-1">
             {focusArea && (
               <p className="text-[13px] text-muted leading-relaxed mb-4 italic">
-                Primary focus: {focusArea}
+                {t.caseLayout.focus}: {focusArea}
               </p>
             )}
-            <ol className="space-y-1.5 text-[13px]">
+            <ol className="space-y-1.5 text-[13px] list-none pl-0">
               {sections.map((section, index) => (
                 <li key={section.id}>
                   <a

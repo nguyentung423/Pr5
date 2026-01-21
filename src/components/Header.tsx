@@ -68,10 +68,10 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: "/work", label: t.header.nav.work },
-    { href: "/thinking", label: t.header.nav.thinking },
-    { href: "/about", label: t.header.nav.about },
-    { href: "/contact", label: t.header.nav.contact },
+    { href: "/work", label: t.header.nav.work, disabled: false },
+    { href: "/thinking", label: t.header.nav.thinking, disabled: true },
+    { href: "/about", label: t.header.nav.about, disabled: false },
+    { href: "/contact", label: t.header.nav.contact, disabled: false },
   ];
 
   const handleLanguageSwitch = (lang: Language) => {
@@ -107,15 +107,25 @@ export default function Header() {
 
         {/* Desktop Navigation - refined spacing and weight */}
         <nav className="hidden md:flex items-center gap-10">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-muted hover:text-fg transition-colors text-[15px] font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-fg after:transition-[width] after:duration-150 hover:after:w-full"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.disabled ? (
+              <span
+                key={item.href}
+                className="text-muted-light/50 text-[15px] font-medium cursor-not-allowed"
+                title="Sắp ra mắt"
+              >
+                {item.label}
+              </span>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-muted hover:text-fg transition-colors text-[15px] font-medium relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-fg after:transition-[width] after:duration-150 hover:after:w-full"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
 
           {/* Language Switch - minimal, text-based */}
           <div
@@ -225,16 +235,25 @@ export default function Header() {
           className="md:hidden border-t border-border-light bg-bg/95 backdrop-blur-xl"
         >
           <div className="max-w-[1000px] mx-auto px-6 py-6 flex flex-col gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-muted hover:text-fg transition-colors text-[17px] font-medium py-3 border-b border-border-light last:border-0 focus-visible:outline-none focus-visible:text-fg focus-visible:underline underline-offset-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.disabled ? (
+                <span
+                  key={item.href}
+                  className="text-muted-light/50 text-[17px] font-medium py-3 border-b border-border-light last:border-0 cursor-not-allowed"
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-muted hover:text-fg transition-colors text-[17px] font-medium py-3 border-b border-border-light last:border-0 focus-visible:outline-none focus-visible:text-fg focus-visible:underline underline-offset-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </div>
         </nav>
       )}

@@ -1,0 +1,98 @@
+---
+title: "Gap Analysis: Enterprise CRM Migration"
+description: "Gap analysis when migrating from legacy CRM to a modern platform"
+date: "2026-01-13"
+tags: ["requirements", "migration", "gap-analysis"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+<CaseLayout
+  focusArea="Gap analysis and migration planning"
+  context={
+    <>
+      <p>
+        Client migrating from legacy CRM (7 years old, heavily customized) to a standard
+        cloud platform. 5-month cutover deadline, limited technical resources.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <p>Key challenges:</p>
+      <ul>
+        <li>Legacy customizations are difficult to map to standard features.</li>
+        <li>Need to maintain reporting, audit, and PII capabilities as-is.</li>
+        <li>Clear Day 1 prioritization needed to avoid cutover delays.</li>
+      </ul>
+    </>
+  }
+  role={
+    <>
+      <p>
+        Business Analyst: led gap analysis, defined requirements, and planned
+        migration. Worked with 3 POs, 2 tech leads, compliance, and operations.
+      </p>
+    </>
+  }
+  approach={
+    <>
+      <h3>1) Discover: Current State & Constraints</h3>
+      <ul>
+        <li>Interviewed 12 stakeholders (Sales, CS, Ops).</li>
+        <li>Extracted 38 existing workflows, 11 critical customizations.</li>
+        <li>Data mapping and integrations with billing, support, warehouse.</li>
+      </ul>
+
+      <h3>2) Define: Gaps & Decisions</h3>
+      <ul>
+        <li>Compared legacy vs. target, documented 52 gaps.</li>
+        <li>Prioritized by impact/effort; 14 must-have items for Day 1.</li>
+        <li>Documented NFRs: latency, auditability, PII handling.</li>
+        <li>Facilitated build vs. configure trade-offs with engineering and product.</li>
+      </ul>
+
+      <h3>3) Deliver: Requirements & Plan</h3>
+      <ul>
+        <li>Requirements package: user stories, acceptance criteria, and data mapping.</li>
+        <li>Phased cutover plan: platform → pilot → rollout.</li>
+        <li>Risk log (auth, data quality, reporting parity) and mitigations.</li>
+      </ul>
+    </>
+
+}
+decisions={
+<>
+<ul>
+<li>Locked Day 1 scope to 14 must-haves; nice-to-haves scheduled for later phases.</li>
+<li>Chose configure over custom code for 3 modules to reduce timeline.</li>
+<li>
+Set minimum audit/PII standards before dev to get compliance sign-off.
+</li>
+</ul>
+</>
+}
+outcome={
+<>
+<ul>
+<li>Clear in/out scope for Day 1; reduced unknowns.</li>
+<li>Engineering had estimable backlog; dev started week 3.</li>
+<li>Compliance signed off before development due to audit/PII documentation.</li>
+<li>Cutover plan with checklist and dry-run steps.</li>
+</ul>
+</>
+}
+reflection={
+<>
+<p>Key learnings:</p>
+<ul>
+<li>Locking Day 1 criteria early reduces scope debates.</li>
+<li>Translate NFRs (audit, PII) into specific testable requirements.</li>
+<li>
+Visual gap matrix helps stakeholders prioritize faster than text-only data.
+</li>
+</ul>
+</>
+}
+/>

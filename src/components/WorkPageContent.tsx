@@ -5,11 +5,17 @@ import { useLanguage } from "@/lib/i18n";
 import type { ContentMeta } from "@/lib/content-types";
 
 interface WorkPageContentProps {
-  work: ContentMeta[];
+  viWork: ContentMeta[];
+  enWork: ContentMeta[];
 }
 
-export default function WorkPageContent({ work }: WorkPageContentProps) {
-  const { t } = useLanguage();
+export default function WorkPageContent({
+  viWork,
+  enWork,
+}: WorkPageContentProps) {
+  const { t, language } = useLanguage();
+
+  const work = language === "en" ? enWork : viWork;
 
   return (
     <div className="max-w-[1000px] mx-auto px-6 pt-10 pb-16 md:pt-12 md:pb-20">
@@ -25,7 +31,12 @@ export default function WorkPageContent({ work }: WorkPageContentProps) {
       {work.length > 0 ? (
         <div className="grid gap-6">
           {work.map((item) => (
-            <Card key={item.slug} item={item} type="work" />
+            <Card
+              key={item.slug}
+              item={item}
+              type="work"
+              disabled={item.slug === "personal-platform"}
+            />
           ))}
         </div>
       ) : (

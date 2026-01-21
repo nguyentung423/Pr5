@@ -1,49 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { useLanguage } from "@/lib/i18n";
-
-function ExpandableSection({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="py-1">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        className="group flex items-center gap-2 text-[15px] text-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
-      >
-        <svg
-          className={`w-3.5 h-3.5 transition-transform duration-150 ${
-            isOpen ? "rotate-90" : ""
-          }`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-        <span>{label}</span>
-      </button>
-      <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-200 ease-out ${
-          isOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="text-[15px] text-fg leading-[1.7] pl-5.5">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function AboutPageContent() {
   const { t } = useLanguage();
@@ -51,17 +8,50 @@ export default function AboutPageContent() {
   return (
     <article className="max-w-[1000px] mx-auto px-6 pt-10 pb-16 md:pt-12 md:pb-20 page-content">
       {/* Editorial opening */}
-      <header className="mb-14">
-        <h1 className="text-[32px] md:text-[38px] font-semibold text-fg tracking-[-0.02em] leading-[1.15] mb-5">
-          {t.about.title}
-        </h1>
-        <p className="text-[19px] md:text-[20px] text-muted leading-[1.6] max-w-[600px] italic">
+      <header className="mb-20 md:mb-24">
+        <div className="mb-4">
+          <h1 className="text-[32px] md:text-[38px] font-semibold text-fg tracking-[-0.02em] leading-[1.15] mb-2">
+            {t.about.title}
+          </h1>
+          {/* Status indicator - minimal style */}
+          <div className="inline-flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-[13px] text-gray-500 font-medium">
+              {t.about.openForInternship}
+            </span>
+          </div>
+        </div>
+        <p className="text-[19px] md:text-[20px] text-muted leading-[1.6] max-w-[650px] italic mb-6">
           {t.about.openingStatement}
         </p>
+        <a
+          href="/cv-nguyen-hoang-tung.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 text-[14px] font-medium border border-neutral-800 text-neutral-800 hover:bg-neutral-800 hover:text-white dark:border-neutral-300 dark:text-neutral-300 dark:hover:bg-neutral-300 dark:hover:text-neutral-900 transition-colors duration-200 rounded-lg"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          {t.about.downloadCV}
+        </a>
       </header>
 
-      {/* Background - flowing narrative */}
-      <section className="mb-14">
+      {/* Brief intro */}
+      <section className="mb-16 max-w-[700px]">
         <p className="text-[16px] text-fg leading-[1.75] mb-4">
           {t.about.backgroundP1}
         </p>
@@ -70,104 +60,123 @@ export default function AboutPageContent() {
         </p>
       </section>
 
-      {/* Pull quote - editorial moment */}
-      <blockquote className="my-14 pl-5 border-l-2 border-border">
-        <p className="text-[18px] text-muted leading-[1.65] italic">
-          {t.about.pullQuote}
-        </p>
-      </blockquote>
-
-      {/* Interests - merged, tighter */}
-      <section className="mb-14">
-        <h2 className="text-[18px] font-semibold text-fg tracking-[-0.01em] mb-4">
-          {t.about.interestsTitle}
-        </h2>
-        <p className="text-[16px] text-fg leading-[1.75]">
-          {t.about.interestsP1}
-        </p>
-      </section>
-
-      {/* Philosophy - emphasized section */}
+      {/* SECTION 1: KINH NGHIỆM */}
       <section className="mb-16">
-        <h2 className="text-[20px] font-semibold text-fg tracking-[-0.01em] mb-6">
-          {t.about.philosophyTitle}
-        </h2>
-        <div className="space-y-5">
-          {t.about.philosophyList.map((item, index) => (
-            <div key={index}>
-              <p className="text-[16px] font-medium text-fg mb-1">
-                {item.principle}
-              </p>
-              <p className="text-[15px] text-muted leading-[1.6]">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+          <div>
+            <h2 className="text-[13px] font-semibold text-muted uppercase tracking-[0.1em] sticky top-24">
+              {t.about.experienceTitle}
+            </h2>
+          </div>
+          <div className="space-y-10">
+            {t.about.experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="pb-10 border-b border-border-light last:border-0 last:pb-0"
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="text-[17px] font-semibold text-fg">
+                      {exp.company}
+                    </h3>
+                    <p className="text-[15px] text-muted italic">{exp.role}</p>
+                  </div>
+                  <span className="text-[13px] text-muted-light font-medium">
+                    {exp.date}
+                  </span>
+                </div>
+                <ul className="space-y-2">
+                  {exp.tasks.map((task, taskIndex) => (
+                    <li
+                      key={taskIndex}
+                      className="text-[15px] text-fg leading-[1.7] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:bg-border before:rounded-full"
+                    >
+                      {task}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Subtle divider */}
-      <hr className="border-t border-border mb-10" />
+      {/* SECTION 2: KỸ NĂNG & CÔNG CỤ */}
+      <section className="mb-16">
+        <div className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+          <div>
+            <h2 className="text-[13px] font-semibold text-muted uppercase tracking-[0.1em] sticky top-24">
+              {t.about.skillsTitle}
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {t.about.skills.map((skillGroup, index) => (
+              <div key={index}>
+                <h3 className="text-[14px] font-semibold text-fg mb-3">
+                  {skillGroup.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {skillGroup.items.map((item, itemIndex) => (
+                    <span
+                      key={itemIndex}
+                      className="px-3 py-1.5 text-[13px] font-medium text-gray-900 bg-gray-100 rounded-md hover:bg-gray-200 transition-all duration-150 cursor-default"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Progressive disclosure - editorial text toggles */}
-      <div className="space-y-2">
-        <ExpandableSection label={t.about.experienceToggle}>
-          <ul className="space-y-3">
-            {t.about.experienceItems.map((item, index) => (
-              <li key={index}>
-                <p className="text-[15px] font-medium text-fg">
-                  {item.headline}
-                </p>
-                <p className="text-[14px] text-muted leading-[1.6]">
-                  {item.detail}
-                </p>
-              </li>
+      {/* SECTION 3: THÀNH TỰU */}
+      <section className="mb-16">
+        <div className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+          <div>
+            <h2 className="text-[13px] font-semibold text-muted uppercase tracking-[0.1em] sticky top-24">
+              {t.about.achievementsTitle}
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {t.about.achievements.map((achievement, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 text-[15px] text-fg"
+              >
+                <span className="w-6 h-6 flex items-center justify-center text-[12px] font-semibold text-gray-900 bg-gray-100 rounded-full">
+                  {index + 1}
+                </span>
+                {achievement}
+              </div>
             ))}
-          </ul>
-        </ExpandableSection>
-        <ExpandableSection label={t.about.certificatesToggle}>
-          <ul className="space-y-3">
-            {t.about.certificatesItems.map((item, index) => (
-              <li key={index}>
-                <p className="text-[15px] font-medium text-fg">
-                  {item.headline}
-                </p>
-                <p className="text-[14px] text-muted leading-[1.6]">
-                  {item.detail}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </ExpandableSection>
-        <ExpandableSection label={t.about.activitiesToggle}>
-          <ul className="space-y-3">
-            {t.about.activitiesItems.map((item, index) => (
-              <li key={index}>
-                <p className="text-[15px] font-medium text-fg">
-                  {item.headline}
-                </p>
-                <p className="text-[14px] text-muted leading-[1.6]">
-                  {item.detail}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </ExpandableSection>
-      </div>
+          </div>
+        </div>
+      </section>
 
-      {/* CV download - subtle, optional next step */}
-      <aside className="mt-14 pt-8 border-t border-border-light">
-        <p className="text-[14px] text-muted mb-3">Muốn xem tổng quan nhanh?</p>
-        <a
-          href="/cv-nguyen-hoang-tung.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Tải CV của Nguyễn Hoàng Tùng dưới dạng PDF"
-          className="inline-flex items-center text-[14px] text-muted hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
-        >
-          Tải CV (PDF) →
-        </a>
-      </aside>
+      {/* Philosophy */}
+      <section className="mb-16">
+        <div className="grid md:grid-cols-[200px_1fr] gap-6 md:gap-12">
+          <div>
+            <h2 className="text-[13px] font-semibold text-muted uppercase tracking-[0.1em] sticky top-24">
+              {t.about.philosophyTitle}
+            </h2>
+          </div>
+          <div className="space-y-6 max-w-[600px]">
+            {t.about.philosophyList.map((item, index) => (
+              <div key={index}>
+                <p className="text-[16px] font-medium text-fg mb-1">
+                  {item.principle}
+                </p>
+                <p className="text-[15px] text-muted leading-[1.6]">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </article>
   );
 }

@@ -12,12 +12,25 @@ import type { ContentMeta, ContentItem } from "./content-types";
 
 const contentDirectory = path.join(process.cwd(), "src/content");
 
-function getContentDirectory(type: "work" | "thinking"): string {
-  return path.join(contentDirectory, type);
+function getContentDirectory(
+  type: "work" | "thinking",
+  lang: "vi" | "en" = "vi",
+): string {
+  const basePath = path.join(contentDirectory, type);
+  const langPath = path.join(basePath, lang);
+
+  // If language folder exists, use it; otherwise fall back to base path
+  if (fs.existsSync(langPath)) {
+    return langPath;
+  }
+  return basePath;
 }
 
-export function getAllContent(type: "work" | "thinking"): ContentMeta[] {
-  const directory = getContentDirectory(type);
+export function getAllContent(
+  type: "work" | "thinking",
+  lang: "vi" | "en" = "vi",
+): ContentMeta[] {
+  const directory = getContentDirectory(type, lang);
 
   if (!fs.existsSync(directory)) {
     return [];
@@ -51,9 +64,10 @@ export function getAllContent(type: "work" | "thinking"): ContentMeta[] {
 
 export function getContentBySlug(
   type: "work" | "thinking",
-  slug: string
+  slug: string,
+  lang: "vi" | "en" = "vi",
 ): ContentItem | null {
-  const directory = getContentDirectory(type);
+  const directory = getContentDirectory(type, lang);
   const filePath = path.join(directory, `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) {
@@ -76,7 +90,8 @@ export function getContentBySlug(
 
 export function getLatestContent(
   type: "work" | "thinking",
-  count: number = 2
+  count: number = 2,
+  lang: "vi" | "en" = "vi",
 ): ContentMeta[] {
-  return getAllContent(type).slice(0, count);
+  return getAllContent(type, lang).slice(0, count);
 }

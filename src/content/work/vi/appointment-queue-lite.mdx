@@ -1,0 +1,229 @@
+---
+title: "Appointment & Queue Lite — Business Analysis"
+description: "Dự án cá nhân tập trung phân tích yêu cầu và xây dựng MVP web đặt lịch theo chi nhánh, quản lý khung giờ (time-slot) và cấp số thứ tự (queue number) nhằm giảm thời gian chờ tại điểm giao dịch."
+date: "2026-01-15"
+tags: ["requirements", "booking", "queue-management"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+{/* Project Snapshot */}
+
+<div
+  className="mb-8 md:mb-12 p-5 md:p-8 rounded-xl border dark:bg-neutral-800/40 dark:border-neutral-700/40"
+  style={{
+    backgroundColor: "#ffffff",
+    borderColor: "#E5E5E5",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+  }}
+>
+  <h3 className="text-[13px] font-semibold text-[#555555] dark:text-neutral-400 uppercase tracking-[0.08em] mb-5">
+    Tổng quan dự án
+  </h3>
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 text-sm">
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Vai trò
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Business Analyst
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Loại dự án
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Dự án cá nhân
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Lĩnh vực
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Dịch vụ / Quản lý hàng đợi
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Thời gian
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Đang thực hiện
+      </span>
+    </div>
+    <div className="col-span-2">
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Trọng tâm
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Yêu cầu, User Stories, Acceptance Criteria, User Flows
+      </span>
+    </div>
+  </div>
+</div>
+
+<CaseLayout
+  focusArea="Định nghĩa yêu cầu và thiết kế MVP"
+  context={
+    <>
+      <p>
+        Web MVP đặt lịch theo chi nhánh + quản lý time-slot + cấp số thứ tự để giảm thời gian chờ tại điểm giao dịch.
+      </p>
+      <p>
+        Khách hàng có thể chọn chi nhánh, chọn khung giờ phù hợp và nhận số thứ tự trước khi đến. 
+        Điều này giúp phân bổ lưu lượng khách hàng đều hơn và giảm thời gian chờ đợi.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <h3>Phạm vi</h3>
+      <p>
+        <strong>Trong phạm vi:</strong>
+      </p>
+      <ul>
+        <li>Branch selection (Chọn chi nhánh)</li>
+        <li>Time-slot booking (Đặt khung giờ)</li>
+        <li>Queue numbering (Cấp số thứ tự)</li>
+        <li>Admin booking management (Quản lý lịch hẹn)</li>
+      </ul>
+      <p>
+        <strong>Ngoài phạm vi:</strong>
+      </p>
+      <ul>
+        <li>Thanh toán trực tuyến</li>
+        <li>Tích hợp CRM/ERP</li>
+        <li>Ứng dụng mobile native</li>
+      </ul>
+    </>
+  }
+  role={
+    <>
+      <h3>Với vai trò phân tích nghiệp vụ</h3>
+      <ul>
+        <li>Định nghĩa yêu cầu nghiệp vụ (BRD/FRD)</li>
+        <li>Viết user stories chi tiết</li>
+        <li>Xây dựng acceptance criteria theo format Given–When–Then</li>
+        <li>Thiết kế user flows cho các luồng chính</li>
+      </ul>
+      <h3>Mô hình hóa nghiệp vụ</h3>
+      <ul>
+        <li>Business rules (slot capacity, cancellation/no-show policies)</li>
+        <li>BPMN diagrams cho các quy trình chính</li>
+        <li>Wireframes cho các màn hình quan trọng</li>
+        <li>KPI definitions để đo lường hiệu quả</li>
+      </ul>
+    </>
+  }
+  approach={
+    <>
+      <h3>Các sản phẩm chính</h3>
+      
+      {/* 1. User Stories & Acceptance Criteria */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">User story và acceptance criteria</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Chuẩn hóa yêu cầu nghiệp vụ thành các user story chi tiết. Acceptance criteria được xây dựng theo mô hình Gherkin (Given-When-Then) nhằm đảm bảo tính chặt chẽ về logic.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Đang cập nhật...
+        </span>
+      </div>
+      
+      {/* 2. User Flow Diagram */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Sơ đồ luồng người dùng</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Trực quan hóa luồng nghiệp vụ (User Flow) cho quá trình đặt lịch: từ chọn chi nhánh → chọn khung giờ → xác nhận → nhận số thứ tự.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Đang cập nhật...
+        </span>
+      </div>
+      
+      {/* 3. BPMN Process Diagram */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">BPMN Process Diagram</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Mô hình hóa quy trình đặt lịch và quản lý hàng đợi theo chuẩn BPMN 2.0, thể hiện rõ các bước, điều kiện và actors.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Đang cập nhật...
+        </span>
+      </div>
+      
+      {/* 4. Wireframes */}
+      <div className="p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Wireframes</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Wireframes cho các màn hình chính: Trang chọn chi nhánh, Trang chọn khung giờ, Trang xác nhận, Dashboard admin.
+        </p>
+        <span className="text-sm text-[#999999] dark:text-neutral-500 italic">
+          → Đang cập nhật...
+        </span>
+      </div>
+    </>
+  }
+  decisions={
+    <>
+      <h3>Business Rules quan trọng</h3>
+      <ul>
+        <li><strong>Slot Capacity:</strong> Mỗi khung giờ có giới hạn số lượng booking tối đa</li>
+        <li><strong>Cancellation Policy:</strong> Cho phép hủy trước X giờ, sau đó không được hủy</li>
+        <li><strong>No-show Handling:</strong> Khách không đến sẽ bị đánh dấu, ảnh hưởng đến lần đặt tiếp theo</li>
+        <li><strong>Queue Priority:</strong> Khách có hẹn trước được ưu tiên so với khách walk-in</li>
+      </ul>
+
+      <h3 className="mt-8">KPIs dự kiến</h3>
+      <ul>
+        <li>Thời gian chờ trung bình tại chi nhánh</li>
+        <li>Tỷ lệ booking online vs. walk-in</li>
+        <li>Tỷ lệ no-show</li>
+        <li>Độ hài lòng khách hàng (CSAT)</li>
+      </ul>
+    </>
+
+}
+outcome={
+<>
+<p>Dự án đang trong giai đoạn phân tích và thiết kế. Các sản phẩm dự kiến:</p>
+<ul>
+<li>
+<strong>Tài liệu yêu cầu</strong> – BRD/FRD với user stories và acceptance criteria
+</li>
+<li>
+<strong>Process Models</strong> – BPMN diagrams cho các luồng chính
+</li>
+<li>
+<strong>Wireframes</strong> – Thiết kế sơ bộ các màn hình quan trọng
+</li>
+<li>
+<strong>MVP Prototype</strong> – Demo hoạt động (dự kiến)
+</li>
+</ul>
+</>
+}
+reflection={
+<>
+<h3>Mục tiêu học hỏi</h3>
+<ul>
+<li>Thực hành phân tích yêu cầu từ ý tưởng đến MVP</li>
+<li>Áp dụng BPMN để mô hình hóa quy trình nghiệp vụ</li>
+<li>Xây dựng acceptance criteria có thể kiểm thử được</li>
+</ul>
+</>
+}
+/>
+
+<div className="mt-10 pt-5 border-t border-neutral-200/40 dark:border-neutral-700/30">
+
+#### Công cụ sử dụng
+
+<span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed block">
+  Google Docs, Google Sheets, Figma, Postman, Lucidchart
+</span>
+
+</div>

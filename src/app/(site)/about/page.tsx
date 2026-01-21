@@ -2,13 +2,11 @@ import { Metadata } from "next";
 import { AboutPageContent } from "@/components";
 
 export const metadata: Metadata = {
-  title: "About | Nguyen Hoang Tung",
-  description:
-    "I enjoy analyzing problems, building systems, and reflecting on what I learn along the way.",
+  title: "About",
+  description: "Background, interests, and what drives me as a practitioner.",
   openGraph: {
     title: "About | Nguyen Hoang Tung",
-    description:
-      "I enjoy analyzing problems, building systems, and reflecting on what I learn along the way.",
+    description: "Background, interests, and what drives me as a practitioner.",
   },
 };
 

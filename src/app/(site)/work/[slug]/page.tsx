@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Prose, CaseLayout } from "@/components";
-import { getContentBySlug, getAllContent, formatDate } from "@/lib/content";
+import { Prose, CaseLayout, BackLink } from "@/components";
+import { getContentBySlug, getAllContent } from "@/lib/content";
+import WorkDetailClient from "./WorkDetailClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const work = getAllContent("work");
+  const work = getAllContent("work", "vi");
   return work.map((item) => ({
     slug: item.slug,
   }));
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const item = getContentBySlug("work", slug);
+  const item = getContentBySlug("work", slug, "vi");
 
   if (!item) {
     return {
@@ -38,60 +38,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function WorkDetailPage({ params }: Props) {
   const { slug } = await params;
-  const item = getContentBySlug("work", slug);
+  const viItem = getContentBySlug("work", slug, "vi");
+  const enItem = getContentBySlug("work", slug, "en");
 
-  if (!item) {
+  if (!viItem) {
     notFound();
   }
 
+  // Pre-render both language versions
+  const viContent = (
+    <Prose>
+      <MDXRemote
+        source={viItem.content}
+        components={{
+          CaseLayout,
+        }}
+      />
+    </Prose>
+  );
+
+  const enContent = enItem ? (
+    <Prose>
+      <MDXRemote
+        source={enItem.content}
+        components={{
+          CaseLayout,
+        }}
+      />
+    </Prose>
+  ) : null;
+
   return (
     <div className="max-w-[1000px] mx-auto px-6 pt-8 pb-16 md:pt-10 md:pb-20">
-      <Link
-        href="/work"
-        className="inline-flex items-center text-sm text-muted hover:text-fg transition-colors mb-6"
-      >
-        ← Back to Work
-      </Link>
+      <BackLink type="work" />
 
-      <header className="mb-12">
-        <div className="flex items-center gap-4 mb-4">
-          {item.type && (
-            <span className="text-xs text-muted uppercase tracking-wide">
-              {item.type}
-            </span>
-          )}
-          <time className="text-sm text-muted">{formatDate(item.date)}</time>
-        </div>
-        <h1 className="text-4xl font-semibold text-fg tracking-tight mb-4">
-          {item.title}
-        </h1>
-        {item.description && (
-          <p className="text-lg text-muted leading-relaxed">
-            {item.description}
-          </p>
-        )}
-        {item.tags && item.tags.length > 0 && (
-          <div className="flex gap-2 mt-6">
-            {item.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs text-muted bg-border/50 px-2 py-1 rounded"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </header>
-
-      <Prose>
-        <MDXRemote
-          source={item.content}
-          components={{
-            CaseLayout,
-          }}
-        />
-      </Prose>
+      <WorkDetailClient
+        viItem={viItem}
+        enItem={enItem || viItem}
+        viContent={viContent}
+        enContent={enContent || viContent}
+      />
     </div>
   );
 }

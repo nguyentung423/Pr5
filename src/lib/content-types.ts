@@ -17,8 +17,8 @@ export type Locale = "vi" | "en";
 
 /**
  * Format date string based on locale
- * Vietnamese: "23 tháng 12, 2024"
- * English: "December 23, 2024"
+ * Vietnamese: "Th01/2026"
+ * English: "Jan 2026"
  */
 export function formatDate(dateString: string, locale: Locale = "en"): string {
   if (!dateString) return "";
@@ -26,7 +26,6 @@ export function formatDate(dateString: string, locale: Locale = "en"): string {
   const date = new Date(dateString);
   return date.toLocaleDateString(locale === "vi" ? "vi-VN" : "en-US", {
     year: "numeric",
-    month: "long",
-    day: "numeric",
+    month: "short",
   });
 }

@@ -14,7 +14,8 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
-  const work = getAllContent("work");
+  const viWork = getAllContent("work", "vi");
+  const enWork = getAllContent("work", "en");
 
-  return <WorkPageContent work={work} />;
+  return <WorkPageContent viWork={viWork} enWork={enWork} />;
 }

@@ -1,25 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { Card } from "@/components";
+import { Card, ClaritySection } from "@/components";
 import { useLanguage } from "@/lib/i18n";
 import { useScrollReveal } from "@/lib/hooks";
 import type { ContentMeta } from "@/lib/content-types";
 
 interface HomeContentProps {
-  latestWork: ContentMeta[];
-  latestThinking: ContentMeta[];
+  viLatestWork: ContentMeta[];
+  enLatestWork: ContentMeta[];
+  latestThinking: ContentMeta[]; // Reserved for future use
 }
 
 export default function HomeContent({
-  latestWork,
+  viLatestWork,
+  enLatestWork,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   latestThinking,
 }: HomeContentProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  // Scroll reveal for key sections
-  const caseStudiesReveal = useScrollReveal<HTMLElement>();
-  const notesReveal = useScrollReveal<HTMLElement>();
+  const latestWork = language === "en" ? enLatestWork : viLatestWork;
+
+  // Scroll reveal for key sections - destructure to avoid lint warnings
+  const { ref: caseStudiesRef, isRevealed: caseStudiesRevealed } =
+    useScrollReveal<HTMLElement>();
+  const { ref: notesRef, isRevealed: notesRevealed } =
+    useScrollReveal<HTMLElement>();
 
   return (
     <div className="max-w-[1000px] mx-auto px-6 page-content">
@@ -47,15 +54,15 @@ export default function HomeContent({
           {/* Primary CTA */}
           <Link
             href="/work"
-            className="inline-flex items-center justify-center h-11 px-5 bg-fg-secondary rounded-xl text-[14px] font-medium tracking-[-0.01em] hover:bg-fg hover:-translate-y-px active:translate-y-0 transition-[background-color,transform] duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center h-11 px-5 bg-fg-secondary rounded-xl text-[14px] font-medium tracking-[-0.01em] hover:bg-fg hover:-translate-y-px active:translate-y-0 transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2"
             style={{ color: "#ffffff" }}
           >
             {t.home.ctaPrimary}
           </Link>
-          {/* Secondary: Notes link */}
-          <Link
-            href="/thinking"
-            className="inline-flex items-center gap-1 h-11 px-3 text-muted text-[14px] font-medium hover:text-fg transition-colors duration-150 focus-visible:outline-none focus-visible:underline underline-offset-4"
+          {/* Secondary: Notes link - disabled */}
+          <span
+            className="inline-flex items-center gap-1 h-11 px-3 text-muted-light/50 text-[14px] font-medium cursor-not-allowed"
+            title="Sắp ra mắt"
           >
             {t.home.ctaSecondary}
             <svg
@@ -71,7 +78,7 @@ export default function HomeContent({
                 d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
               />
             </svg>
-          </Link>
+          </span>
         </div>
 
         {/* Credibility line */}
@@ -90,11 +97,11 @@ export default function HomeContent({
             <h3 className="text-[17px] font-semibold text-fg mb-3">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors duration-300 ease-out"
               >
                 {t.home.workTitle}
                 <svg
-                  className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-150"
+                  className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -112,27 +119,14 @@ export default function HomeContent({
               {t.home.workDesc}
             </p>
           </div>
-          <div className="group">
+          <div className="group opacity-50">
             <h3 className="text-[17px] font-semibold text-fg mb-3">
-              <Link
-                href="/thinking"
-                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+              <span
+                className="inline-flex items-center gap-2 cursor-not-allowed"
+                title="Sắp ra mắt"
               >
                 {t.home.notesTitle}
-                <svg
-                  className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-150"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
+              </span>
             </h3>
             <p className="text-muted text-[15px] leading-relaxed">
               {t.home.notesDesc}
@@ -142,11 +136,11 @@ export default function HomeContent({
             <h3 className="text-[17px] font-semibold text-fg mb-3">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors duration-300 ease-out"
               >
                 {t.home.aboutTitle}
                 <svg
-                  className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-150"
+                  className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -169,9 +163,9 @@ export default function HomeContent({
 
       {/* Case Studies - elevated presentation */}
       <section
-        ref={caseStudiesReveal.ref}
+        ref={caseStudiesRef}
         className={`py-20 border-t border-border reveal ${
-          caseStudiesReveal.isRevealed ? "revealed" : ""
+          caseStudiesRevealed ? "revealed" : ""
         }`}
       >
         <div className="flex items-baseline justify-between mb-10">
@@ -180,7 +174,7 @@ export default function HomeContent({
           </h2>
           <Link
             href="/work"
-            className="text-[14px] text-muted hover:text-fg transition-colors font-medium"
+            className="text-[14px] text-muted hover:text-fg transition-colors duration-300 ease-out font-medium"
           >
             {t.home.viewAll}
           </Link>
@@ -188,7 +182,7 @@ export default function HomeContent({
         {latestWork.length > 0 ? (
           <div
             className={`grid md:grid-cols-2 gap-6 reveal-stagger ${
-              caseStudiesReveal.isRevealed ? "revealed" : ""
+              caseStudiesRevealed ? "revealed" : ""
             }`}
           >
             {latestWork.map((item) => (
@@ -200,59 +194,32 @@ export default function HomeContent({
         )}
       </section>
 
-      {/* Recent Notes - analytical thinking */}
+      {/* Recent Notes - analytical thinking - disabled */}
       <section
-        ref={notesReveal.ref}
-        className={`py-20 border-t border-border reveal ${
-          notesReveal.isRevealed ? "revealed" : ""
+        ref={notesRef}
+        className={`py-20 border-t border-border reveal opacity-50 ${
+          notesRevealed ? "revealed" : ""
         }`}
       >
         <div className="flex items-baseline justify-between mb-3">
           <h2 className="text-[22px] font-semibold text-fg tracking-[-0.02em]">
             {t.home.analysisNotes}
           </h2>
-          <Link
-            href="/thinking"
-            className="text-[14px] text-muted hover:text-fg transition-colors font-medium"
+          <span
+            className="text-[14px] text-muted-light/50 font-medium cursor-not-allowed"
+            title="Sắp ra mắt"
           >
             {t.home.viewAll}
-          </Link>
+          </span>
         </div>
         <p className="text-[14px] text-muted mb-8 max-w-[480px]">
           {t.home.analysisNotesDesc}
         </p>
-        {latestThinking.length > 0 ? (
-          <div
-            className={`grid md:grid-cols-2 gap-6 reveal-stagger ${
-              notesReveal.isRevealed ? "revealed" : ""
-            }`}
-          >
-            {latestThinking.map((item) => (
-              <Card key={item.slug} item={item} type="thinking" />
-            ))}
-          </div>
-        ) : (
-          <p className="text-muted">{t.home.notesComingSoon}</p>
-        )}
+        <p className="text-muted">{t.home.notesComingSoon}</p>
       </section>
 
-      {/* Closing - reflective, learning-oriented */}
-      <section className="py-20 border-t border-border">
-        <div className="max-w-[480px]">
-          <h2 className="text-[22px] font-semibold text-fg tracking-[-0.02em] mb-4">
-            {t.home.workingTogether}
-          </h2>
-          <p className="text-muted text-[15px] leading-relaxed mb-6">
-            {t.home.workingTogetherDesc}
-          </p>
-          <Link
-            href="/about"
-            className="inline-flex items-center text-muted text-[14px] font-medium hover:text-fg transition-colors focus-visible:outline-none focus-visible:underline underline-offset-4"
-          >
-            {t.home.discussProject}
-          </Link>
-        </div>
-      </section>
+      {/* GSAP Animated Clarity Section */}
+      <ClaritySection />
     </div>
   );
 }

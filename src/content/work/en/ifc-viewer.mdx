@@ -1,0 +1,281 @@
+---
+title: "IFC Viewer (BIM) – Business Analysis & Quality Assurance"
+description: "Personal project focused on requirements analysis and manual testing for an IFC (BIM) file viewer web application."
+date: "2026-01-20"
+tags: ["requirements", "BIM", "quality-assurance", "manual-testing"]
+type: "case-study"
+---
+
+import { CaseLayout } from "@/components";
+
+{/* Project Snapshot */}
+
+<div
+  className="mb-8 md:mb-12 p-5 md:p-8 rounded-xl border dark:bg-neutral-800/40 dark:border-neutral-700/40"
+  style={{
+    backgroundColor: "#ffffff",
+    borderColor: "#E5E5E5",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+  }}
+>
+  <h3 className="text-[13px] font-semibold text-[#555555] dark:text-neutral-400 uppercase tracking-[0.08em] mb-5">
+    Project Overview
+  </h3>
+  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 text-sm">
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Role
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Business Analyst, Quality Assurance
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Project Type
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Personal Project
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Domain
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        BIM / Construction Technology
+      </span>
+    </div>
+    <div>
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Duration
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        1 week
+      </span>
+    </div>
+    <div className="col-span-2">
+      <span className="text-[#555555] dark:text-neutral-400 block text-xs uppercase tracking-wide mb-1.5">
+        Focus
+      </span>
+      <span className="text-[#111111] dark:text-neutral-100 font-medium">
+        Requirements, Acceptance Criteria, Manual Testing
+      </span>
+    </div>
+  </div>
+</div>
+
+<CaseLayout
+  focusArea="Requirements definition and quality assurance"
+  context={
+    <>
+      <p>
+        IFC (Industry Foundation Classes) files are the standard format for exchanging BIM
+        (Building Information Modeling) data. These files are complex and can be very large.
+      </p>
+      <p>
+        Users need a simple way to upload, view, filter, and export IFC models.
+        Unclear requirements and missing edge cases often lead to errors and rework.
+      </p>
+    </>
+  }
+  problem={
+    <>
+      <h3>Scope</h3>
+      <p>
+        <strong>In Scope:</strong>
+      </p>
+      <ul>
+        <li>Upload IFC files</li>
+        <li>Render 3D models</li>
+        <li>Filter objects and data</li>
+        <li>Export images</li>
+      </ul>
+      <p>
+        <strong>Out of Scope:</strong>
+      </p>
+      <ul>
+        <li>Model editing</li>
+        <li>Multi-user collaboration</li>
+        <li>Permission management</li>
+      </ul>
+    </>
+  }
+  role={
+    <>
+      <h3>As Business Analyst</h3>
+      <ul>
+        <li>Define project scope and user stories</li>
+        <li>Write acceptance criteria using Given–When–Then format</li>
+        <li>Identify edge cases and system constraints</li>
+      </ul>
+      <h3>As Quality Assurance</h3>
+      <ul>
+        <li>Create and execute manual test cases</li>
+        <li>Test main flows and edge cases</li>
+        <li>Report bugs with clear reproduction steps and evidence</li>
+        <li>Perform regression testing after bug fixes</li>
+      </ul>
+    </>
+  }
+  approach={
+    <>
+      <h3>Key Deliverables</h3>
+      
+      {/* 1. User Stories & Acceptance Criteria */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">User Stories & Acceptance Criteria (Jira)</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Standardize business requirements into detailed user stories. Acceptance criteria built using Gherkin model (Given-When-Then) to ensure logical rigor and optimize testing.
+        </p>
+        <div className="mb-4">
+          <img src="/ac.png" alt="Jira story with acceptance criteria" className="w-full h-auto rounded-lg" />
+        </div>
+        <a href="https://tungnhvspace.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiZmUzMmUwZmViOGM2NGM4MjhlMzZlNDc2NjdiYTc2MDYiLCJwIjoiaiJ9" target="_blank" rel="noopener noreferrer" className="text-sm text-[#111111] dark:text-blue-400 hover:text-[#555555] dark:hover:text-blue-300 underline underline-offset-2 decoration-[#CCCCCC] hover:decoration-[#999999] transition-colors">
+          → View in Jira
+        </a>
+        <div className="mt-3 p-3 rounded-lg text-[13px]" style={{backgroundColor: '#EFF6FF', border: '1px dashed #9CA3AF', color: '#111111'}}>
+          <span className="block mb-1">⚠️ Note: Please login with the Demo account below to view:</span>
+          <span className="block"><strong>Email:</strong> storechienuytin123@gmail.com</span>
+          <span className="block"><strong>Pass:</strong> Qazplmq1@</span>
+        </div>
+      </div>
+      
+      {/* 2. Bug Reports */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Bug Reports (Jira)</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Standard bug reporting process with complete Reproduction Steps and visual evidence, helping Developers save maximum time finding and fixing bugs.
+        </p>
+        <div className="mb-4">
+          <img src="/bug.png" alt="Jira bug report" className="w-full h-auto rounded-lg" />
+        </div>
+        <a href="https://tungnhvspace.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiZmUzMmUwZmViOGM2NGM4MjhlMzZlNDc2NjdiYTc2MDYiLCJwIjoiaiJ9" target="_blank" rel="noopener noreferrer" className="text-sm text-[#111111] dark:text-blue-400 hover:text-[#555555] dark:hover:text-blue-300 underline underline-offset-2 decoration-[#CCCCCC] hover:decoration-[#999999] transition-colors">
+          → View in Jira
+        </a>
+        <div className="mt-3 p-3 rounded-lg text-[13px]" style={{backgroundColor: '#EFF6FF', border: '1px dashed #9CA3AF', color: '#111111'}}>
+          <span className="block mb-1">⚠️ Note: Please login with the Demo account below to view:</span>
+          <span className="block"><strong>Email:</strong> storechienuytin123@gmail.com</span>
+          <span className="block"><strong>Pass:</strong> Qazplmq1@</span>
+        </div>
+      </div>
+      
+      {/* 3. Manual Test Cases */}
+      <div className="mb-4 md:mb-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Manual Test Cases (Google Sheets)</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Build a test case suite with Comprehensive Coverage, including both Happy Path and Edge Cases, ensuring features work stably before release.
+        </p>
+        <div className="mb-4">
+          <img src="/sh.png" alt="Test case spreadsheet" className="w-full h-auto rounded-lg" />
+        </div>
+        <a href="https://docs.google.com/spreadsheets/d/1MREd3i_U_FgxARvcm1O4hAC1f5FFU2zy_kku92cFjA8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1A1A1A] dark:text-blue-400 hover:text-[#666666] dark:hover:text-blue-300 underline underline-offset-2 decoration-[#CCCCCC] hover:decoration-[#999999] transition-colors">
+          → View test cases
+        </a>
+      </div>
+      
+      {/* 4. User Flow Diagram */}
+      <div className="p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">User Flow Diagram (Lucidchart)</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Visualize User Flow to align thinking with the development team and stakeholders, helping to detect logic gaps early before implementation.
+        </p>
+        <div className="mb-4">
+          <img src="/chart.png" alt="Flow diagram in Lucidchart" className="w-full h-auto rounded-lg" />
+        </div>
+        <a href="https://lucid.app/lucidchart/8098a2a9-d12e-4687-b543-34a52824e603/edit?viewport_loc=-47%2C38%2C2770%2C1341%2C0_0&invitationId=inv_ca4b72d0-258d-4710-afaa-2393e7a9d53a" target="_blank" rel="noopener noreferrer" className="text-sm text-[#111111] dark:text-blue-400 hover:text-[#555555] dark:hover:text-blue-300 underline underline-offset-2 decoration-[#CCCCCC] hover:decoration-[#999999] transition-colors">
+          → View in Lucidchart
+        </a>
+      </div>
+      
+      {/* 5. Project Documentation */}
+      <div className="mt-4 md:mt-6 p-4 md:p-6 rounded-xl border dark:bg-neutral-800/30 dark:border-neutral-700/20" style={{backgroundColor: '#ffffff', borderColor: '#E5E5E5', boxShadow: '0 1px 3px rgba(0,0,0,0.06)'}}>
+        <h4 className="font-medium text-[#111111] dark:text-neutral-100 mb-2">Project Documentation (Google Docs)</h4>
+        <p className="text-sm text-[#555555] dark:text-neutral-400 mb-4">
+          Consolidate requirements, decisions, and testing checklists throughout the project execution.
+        </p>
+        <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm text-[#111111] dark:text-blue-400 hover:text-[#555555] dark:hover:text-blue-300 underline underline-offset-2 decoration-[#CCCCCC] hover:decoration-[#999999] transition-colors">
+          → View documentation
+        </a>
+      </div>
+    </>
+  }
+  decisions={
+    <>
+      <h3>Demo</h3>
+      <p>
+        A demo of the IFC Viewer is available. The demo was intentionally simplified
+        to focus on business analysis and quality assurance rather than a polished
+        product. The demo serves as a testing target, similar to working with a development team.
+      </p>
+      <a
+        href="https://ifc-viewer1.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-md text-sm font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors"
+      >
+        View Demo
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      </a>
+
+      <h3 className="mt-8">AI Usage</h3>
+      <p>
+        AI was used to quickly generate the demo application, allowing me to focus on
+        requirements definition, acceptance criteria, and quality assurance —
+        similar to working with a development team.
+      </p>
+    </>
+
+}
+outcome={
+<>
+<p>This personal project demonstrates:</p>
+<ul>
+<li>
+<strong>Clear documentation</strong> – User stories with measurable acceptance criteria
+</li>
+<li>
+<strong>Structured QA process</strong> – Comprehensive test coverage including edge cases
+</li>
+<li>
+<strong>Tangible deliverables</strong> – Reviewable artifacts
+</li>
+<li>
+<strong>Working demo</strong> – Functional application as supporting evidence
+</li>
+</ul>
+</>
+}
+reflection={
+<>
+<h3>What I Learned</h3>
+<ul>
+<li>Clear acceptance criteria helps reduce rework</li>
+<li>Edge cases are critical when handling complex files</li>
+<li>Early scope alignment helps avoid mismatched expectations</li>
+</ul>
+</>
+}
+/>
+
+<div className="mt-10 pt-5 border-t border-neutral-200/40 dark:border-neutral-700/30">
+
+#### Tools Used
+
+<span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed block">
+  Jira, Google Docs, Google Sheets, Lucidchart, Postman, DevTools, AI
+</span>
+
+</div>

@@ -9,3 +9,5 @@ export { default as WorkPageContent } from "./WorkPageContent";
 export { default as ThinkingPageContent } from "./ThinkingPageContent";
 export { default as AboutPageContent } from "./AboutPageContent";
 export { default as ContactPageContent } from "./ContactPageContent";
+export { default as ClaritySection } from "./ClaritySection";
+export { default as BackLink } from "./BackLink";
