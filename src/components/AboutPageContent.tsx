@@ -28,7 +28,7 @@ export default function AboutPageContent() {
           {t.about.openingStatement}
         </p>
         <a
-          href="/cv-nguyen-hoang-tung.pdf"
+          href="/CV_Tung Nguyen (1).pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-4 py-2 text-[14px] font-medium border border-neutral-800 text-neutral-800 hover:bg-neutral-800 hover:text-white dark:border-neutral-300 dark:text-neutral-300 dark:hover:bg-neutral-300 dark:hover:text-neutral-900 transition-colors duration-200 rounded-lg"
